@@ -13,3 +13,10 @@ After normalization, the code proceeds to eliminate elements below and to the ri
 The end result is that, at the end of this loop, the matrix A is transformed into the product of the lower triangular matrix L and the upper triangular matrix U, as per the LU decomposition algorithm.
 
 3)Inverse of Matrix<br>
+The function begins by initializing the inverse matrix A_inv as an identity matrix. An identity matrix has 1s on the main diagonal and 0s elsewhere.<br>
+It then proceeds with Gaussian elimination. This is a process where the goal is to transform the original matrix A into an upper triangular matrix while simultaneously transforming the identity matrix A_inv into the inverse of the transformation applied to A.<br>
+
+The following code is being parallelized using openMP<br>
+-Normalization: The code normalizes the elements below the main diagonal by dividing each element by the current pivot element. This ensures that the pivot element becomes 1.0.<br>
+-Elimination: For each row that is not the current pivot row, the code subtracts multiples of the pivot row from other rows to eliminate elements below and above the main diagonal.<br>
+-Row Operations: The program performs row operations to ensure that the diagonal elements of the matrix A are all 1.0.<br>
